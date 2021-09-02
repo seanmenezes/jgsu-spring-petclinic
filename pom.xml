@@ -321,6 +321,26 @@
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>0.6.1.201212231917</version>
+        <configuration>
+          <skip>${maven.test.skip}</skip>
+          <output>file</output>
+          <append>true</append>
+        </configuration>
+        <executions>
+          <execution>
+            <id>jacoco-initialize</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jacoco-site</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </reporting>
